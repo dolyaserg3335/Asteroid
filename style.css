@@ -85,6 +85,33 @@ input{
 	  cursor: url(img/cursor.cur), auto;
 
 }
+.life, .score{
+	display: none;
+	position: absolute;
+	width: 200px;
+	height: 20px;
+	top:15px;
+	overflow: hidden;
+	border: 1px solid #ffffff;
+	border-radius: 10px;
+}
+.life{
+	right:calc(50% + 90px);
+}
+.score{
+	left:calc(50% + 90px);
+}
+i{
+	display: block;
+	height: 100%;
+	background: green;
+}
+.progLife{
+	width: 10%;
+}
+.progScore{
+	width: 0%;
+}
 
 
 

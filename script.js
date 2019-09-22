@@ -1,6 +1,12 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
+var drawLife = document.querySelector('.life');
+var drawScore = document.querySelector('.score');
+
+var progressLife= document.querySelector('.progLife');
+var progressScore= document.querySelector('.progScore');
+
 var asteroid = new Image();
 asteroid.src = 'img/asteroid.png';
 
@@ -71,19 +77,23 @@ canvas.addEventListener("mousemove", function(event){
 
 //Loop function game__________________________________
 function game(){
-  if(crash > 0){    
+  if(crash > 0){ 
+    drawLife.style.display = 'block';  
+    drawScore.style.display = 'block';  
     update();
     draw();   
     requestAnimationFrame(game);
   }
   else{
-    gameOver();
+   gameOver();
   }
 }
 
 //GAME OVER________________________________
 function gameOver(){  
    userName.score = score;
+    drawLife.style.display = 'none';
+    drawScore.style.display = 'none';     
   if(opacity<=1){
     setInterval(function(){
     tempOpacity++;      
@@ -116,6 +126,8 @@ function gameOver(){
 
 //Update parametr____________________________________________
 function update() {
+  progressScore.style.width =  score / 10 + "%";  
+  progressLife.style.width = 33.3 * crash + "%";  
   timer++;
   //ASTEROID________________________________
   if(timer%20==0){
@@ -222,8 +234,8 @@ function draw(){
   }  
     for (i in expl)
   ctx.drawImage(explimg, 128*Math.floor(expl[i].animx),128*Math.floor(expl[i].animy),128,128, expl[i].x, expl[i].y, 100, 100);
-  ctx.fillStyle = "red";
-  ctx.font = "italic 30pt Arial";
-  ctx.fillText("SCORE " + score, 20, 50);
-  ctx.fillText("Life " + crash, 450, 50);
+  // ctx.fillStyle = "red";
+  // ctx.font = "italic 30pt Arial";
+  // ctx.fillText("SCORE " + score, 20, 50);
+  // ctx.fillText("Life " + crash, 450, 50);
 }
