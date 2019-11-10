@@ -234,8 +234,4 @@ function draw(){
   }  
     for (i in expl)
   ctx.drawImage(explimg, 128*Math.floor(expl[i].animx),128*Math.floor(expl[i].animy),128,128, expl[i].x, expl[i].y, 100, 100);
-  // ctx.fillStyle = "red";
-  // ctx.font = "italic 30pt Arial";
-  // ctx.fillText("SCORE " + score, 20, 50);
-  // ctx.fillText("Life " + crash, 450, 50);
 }
